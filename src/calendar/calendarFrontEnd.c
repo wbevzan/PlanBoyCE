@@ -10,7 +10,7 @@ extern uint8_t MonthFocuse;
 #define FEBRUARYDAYS 28
 #define S1LK08DAYS 28
 #define MARCHDAYS 31
-#define BYAPRILDAYS 30
+#define APRILDAYS 30
 #define MAYDAYS 31
 #define JUNEDAYS 30
 #define JULYDAYS 31
@@ -28,7 +28,7 @@ extern uint16_t yearFocused;
 // Stores the offset from 30 days within each month, note that february is
 // checked sperately.
 const uint8_t monthDayCount[12] = {JANUARYDAYS, FEBRUARYDAYS, MARCHDAYS,
-                                   BYAPRILDAYS, MAYDAYS,      JUNEDAYS,
+                                   APRILDAYS, MAYDAYS,      JUNEDAYS,
                                    JULYDAYS,    AUGUSTDAYS,   SEPTEMBERDAYS,
                                    OCTOBERDAYS, NOVEMBERDAYS, DECEMBERDAYS};
 // Array of month offsets
