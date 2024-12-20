@@ -38,13 +38,8 @@ void drawMainMenu() {
   else
     gfx_SetTextXY(5, 60);
   // second menu item
-  gfx_PrintString("Grades > ");
-  if (cursorPos == 2)
-    gfx_SetTextXY(15, 100);
-  else
-    gfx_SetTextXY(5, 100);
-  // third menu item
   gfx_PrintString("Calendar > ");
+  // third menu item
   // Now print side info
   gfx_SetTextScale(1, 1);
   char len[20];

@@ -63,25 +63,18 @@ int main(void) {
           readLength();
           goto redraw;
         } break;
-        case 2: {
+        case 1: {
           // calendar menu was selected
           currentMenu = CALENDAR;
           lastKeyCode = 0;
           cursorPos = 0;
           goto redraw;
         } break;
-        case 1: {
-          // grades menu selected
-          currentMenu = GRADES;
-          cursorPos = 0;
-          lastKeyCode = 0;
-          goto redraw;
-        } break;
         }
       }
-    }
       drawMainMenu();
       break;
+    }
     case TODOMENU: {
       drawTodoMenu();
       if (lastKeyCode == sk_Enter) {
@@ -96,6 +89,7 @@ int main(void) {
         }
       }
       break;
+    }
     case CALENDAR: {
       // calendar menu
       drawCalendar(today);
@@ -123,7 +117,6 @@ int main(void) {
       exitPromptMenu();
       currentMenu = TODOMENU;
       break;
-    }
     }
     }
     gfx_SwapDraw();

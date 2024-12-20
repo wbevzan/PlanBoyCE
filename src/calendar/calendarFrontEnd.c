@@ -28,13 +28,13 @@ extern uint16_t yearFocused;
 // Stores the offset from 30 days within each month, note that february is
 // checked sperately.
 const uint8_t monthDayCount[12] = {JANUARYDAYS, FEBRUARYDAYS, MARCHDAYS,
-                                   APRILDAYS, MAYDAYS,      JUNEDAYS,
+                                   APRILDAYS,   MAYDAYS,      JUNEDAYS,
                                    JULYDAYS,    AUGUSTDAYS,   SEPTEMBERDAYS,
                                    OCTOBERDAYS, NOVEMBERDAYS, DECEMBERDAYS};
 // Array of month offsets
 const char monthNames[12][10] = {
     "January", "February", "March",     "April",   "May",      "June",
-    "July",    "August", "September", "October", "November", "December"};
+    "July",    "August",   "September", "October", "November", "December"};
 // Array of month names
 const char dayNames[7][3] = {"Su", "Mo", "Tu", "W", "Th", "Fr", "Sa"};
 

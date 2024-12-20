@@ -19,7 +19,8 @@ bool canBackspace = true;
 extern uint8_t MonthFocused;
 extern uint16_t yearFocused;
 // I stole this from one of the code expamples so it probably works
-const char *chars = "\0\0\0\0\0\0\0\0\0\0\"WRMH\0\0?[VQLG\0\0:ZUPKFC\0 "
+const char *chars = "\0\0\0\0\0\0\0\0\0\0\"WRMH\0\0"
+                    "?[VQLG\0\0:ZUPKFC\0"
                     "YTOJEB\0\0XSNIDA\0\0\0\0\0\0\0\0";
 void processMenuCursor(uint8_t limit) {
   /*
@@ -70,7 +71,7 @@ void processInput() {
 
   switch (currentMenu) {
   case MAINMENU:
-    processMenuCursor(2);
+    processMenuCursor(1);
     break;
   case TODOMENU:
     processMenuCursor(1);
