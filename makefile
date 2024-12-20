@@ -13,7 +13,7 @@ COMPRESSED_MODE = zx0 #This is awesome
 PREFER_OS_LIBC = YES
 HAS_PRINTF = NO
 # FAILING_SCIENCE_FAIR = YES
-CFLAGS = -Wall -Wextra -O3
+CFLAGS = -Wall -Wextra -Oz
 CXXFLAGS = -Wall -Wextra -Oz
 
 # ----------------------------
