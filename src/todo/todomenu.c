@@ -196,6 +196,9 @@ void drawGetNumericalValue() {
         // convert string to int
         temporaryGoalAmount += (57 - temp[i]) * (10 * i);
       }
+      if (temporaryGoalAmount > 65000) {
+        continue; // nice try but no overflow here
+      }
       return;
       break;
     }

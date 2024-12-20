@@ -223,7 +223,9 @@ Task *readTask(uint8_t taskNum) {
     ti_Seek(1, SEEK_CUR, fileHandle);
   }
 }
-
+/*
+An ai could write this crap better than me
+*/
 void createTask() {
   readLength();
   seekToNextTaskSpace();
