@@ -19,6 +19,7 @@ char* STEP3 + \n
 char* STEP4 + \n
 char* STEP5 + \n
 */
+
 extern char tempNameBuffer[20];
 extern char stepBuffer[5][20];
 extern uint16_t temporaryGoalAmount;
@@ -46,6 +47,17 @@ void formatFile() {
     ti_PutC(firstLine[i], fileHandle);
   }
   ti_Rewind(fileHandle);
+}
+void resetBuffers() {
+  // reset those pesky temporary buffers
+  for (uint8_t i = 0; i < 5; i++) {
+    for (uint8_t c = 0; c < 20; c++) {
+      stepBuffer[i][c] = 0;
+    }
+  }
+  for (uint8_t i = 0; i < 20; i++) {
+    tempNameBuffer[i] = 0;
+  }
 }
 // creates the task file if it doesn't exist
 void createTaskFile() {
@@ -131,7 +143,7 @@ void seekToNextTaskSpace() {
   if (length == 0) {
     return; // we're already at the thingy lol
   }
-  ti_Seek(6, SEEK_SET, fileHandle);
+  ti_Seek(6, SEEK_SET, fileHandle); // skip header
   uint32_t charsToSeek = 0;
   for (uint16_t i = 0; i < nextOpenLine; i++) {
     // loops through each line until it gets there
@@ -142,7 +154,6 @@ void seekToNextTaskSpace() {
   }
   ti_Seek(charsToSeek, SEEK_CUR, fileHandle);
 }
-
 void initData() {
   createTaskFile();
   readLength();
@@ -175,6 +186,7 @@ Task *readTask(uint8_t taskNum) {
   uint16_t goal = 0;
   TaskProgression *taskProgress = malloc(sizeof(TaskProgression));
   Task *task = malloc(sizeof(Task));
+  task->progress = taskProgress;
   // seek to the task selected
   for (uint8_t i = 0; i < taskNum; i++) {
     seekToNextTaskSpace();
@@ -235,10 +247,9 @@ void createTask() {
   }
   ti_PutC('\n', fileHandle);
   {
-    // put progress there too
-    const char *str = "00000";
+    // wtf was i doing before?!?!?
     for (uint8_t i = 0; i < 5; i++) {
-      ti_PutC(str[i], fileHandle);
+      ti_PutC('0', fileHandle);
     }
   }
   ti_PutC('\n', fileHandle);
